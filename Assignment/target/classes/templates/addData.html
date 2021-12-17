@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<script src="Reconciliation.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container-flued page-wrapper" id="wrapper">
+
+		<div class="content-wrapper">
+			<div class="card-body">
+				<div id="from_container">
+					<div align="center">
+						<h2 class="text-dark"><b>Welcome To Recounciliation Services.</b></h2>
+					</div>
+					<form action="#" th:action="@{/addReconciliationRule}" th:object="${reconcilationModel}"
+						method="post" class="form-sample">
+						<h4 class="text-primary ">Add Recounciliation Rules And Condition</h4>
+						<br><br>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="RuleName">Rule Name
+										<span style="color: red; font-size: 15px">*</span>
+									</label>
+									<div class="col-sm-6">
+										<input type="text" th:field="*{RuleName}" id="RuleName">
+										<span th:if="${#fields.hasErrors('RuleName')}" th:errors="*{RuleName}"></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="RuleVersion">Rule Version<span
+											style="color: red; font-size: 15px">*</span></label>
+									<div class="col-sm-6">
+										 <input type="text" th:field="*{RuleVersion}" id="RuleVersion" >
+    								<span th:if="${#fields.hasErrors('RuleVersion')}" th:errors="*{RuleVersion}"></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label"  for="RulePriority">Rule Priority</label>
+									<div class="col-sm-6">
+										 <input type="text" th:field="*{RulePriority}" id="RulePriority" >
+   									 <span th:if="${#fields.hasErrors('RulePriority')}" th:errors="*{RulePriority}"></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="isActive">Active</label>
+									<div class="col-sm-6">
+										<label class="radio-inline"> <input type="radio" th:field="*{IsActive}" id="yes"  value="YES" checked>
+											YES
+										</label> 
+										 <span th:if="${#fields.hasErrors('IsActive')}" th:errors="*{IsActive}"></span>
+										<label class="radio-inline"> <input type="radio"  th:field="*{IsActive}" id="no" value="NO" >
+											NO
+										</label>
+										<span th:if="${#fields.hasErrors('IsActive')}" th:errors="*{IsActive}"></span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-group row">
+									<div class="col-sm-6">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<div class="col-sm-6">
+									<div align="left"><button type="button" class="btn btn-success gmd-4" onclick="AddRuleCondition()">Add Rule Condition</button></div>
+									</div>
+								</div>
+							</div>
+							<br>
+							
+							<div id="data"  class="hidden">
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label"  for="Conditiondata">Condition</label>
+									<div class="col-sm-6">
+										 <input type="text" th:field="*{Conditiondata}" id="Conditiondata" >
+   									 <span th:if="${#fields.hasErrors('Conditiondata')}" th:errors="*{Conditiondata}"></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label"  for="Valuedata">Value</label>
+									<div class="col-sm-6">
+										 <input type="text" th:field="*{Valuedata}" id="Valuedata" >
+   									 <span th:if="${#fields.hasErrors('Valuedata')}" th:errors="*{Valuedata}"></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label"  for="fielddata">Field</label>
+									<div class="col-sm-6">
+										 <input type="text" th:field="*{fielddata}" id="fielddata" >
+   									 	<span th:if="${#fields.hasErrors('fielddata')}" th:errors="*{fielddata}"></span>
+									</div>
+								</div>
+							</div>
+									</div>
+						</div>
+
+						<br> <br>
+
+						<button type="submit" class="btn btn-primary gmd-4" onclick="addService()">ADD</button>
+
+					</form>
+								</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+   
